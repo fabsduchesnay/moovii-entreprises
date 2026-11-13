@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Moovii pour les entreprises</title>
+<meta name="description" content="Vidéo d'entreprise à Bordeaux : film de présentation, contenus réseaux sociaux, portraits d'équipe. Moovii aide les entreprises à montrer leur savoir-faire, convaincre leurs clients et recruter.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Moovii · La vidéo qui montre votre savoir-faire">
+<meta property="og:description" content="Film de présentation, contenus réseaux sociaux, portraits d'équipe. Un seul interlocuteur, vos équipes peu mobilisées.">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: portfolio sobre comme le site d'origine. Fond blanc, menu en capitales espacées, grande vidéo d'accueil avec MOOVII centré, puis les images qui parlent, une phrase sous chacune. */
+:root{
+  --bg:#FFFFFF;
+  --soft:#F3F1EC;
+  --ink:#0C1A3A;
+  --muted:#5A6480;
+  --line:#E4E4E0;
+  --dark:#0C1A3A;
+  --accent:#FF5A2E;
+  --f:"Montserrat","Helvetica Neue",Arial,sans-serif;
+  --wrap:1240px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.7 var(--f);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(16px,4vw,48px)}
+h1,h2,h3{margin:0;font-weight:600;text-wrap:balance;line-height:1.2}
+h2{font-size:clamp(24px,3vw,34px);letter-spacing:.14em;text-transform:uppercase;text-align:center}
+h3{font-size:17px;letter-spacing:.06em;text-transform:uppercase}
+p{margin:0}
+.sub{color:var(--muted);text-align:center;max-width:60ch;margin:16px auto 0}
+section{padding:clamp(64px,9vw,112px) 0}
+.rule{width:48px;height:1px;background:var(--ink);margin:22px auto 0}
+
+.btn{display:inline-block;font:600 12px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:17px 30px;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.solid{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn.solid:hover{background:transparent;color:var(--ink)}
+.hero .btn:hover{background:#fff;color:#111;border-color:#fff}
+
+/* Menu */
+header.top{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:72px}
+.logo{font:700 20px/1 var(--f);letter-spacing:.3em;text-decoration:none}
+.nav ul{display:flex;gap:34px;list-style:none;margin:0;padding:0}
+.nav ul a{font:500 12px/1 var(--f);letter-spacing:.18em;text-transform:uppercase;text-decoration:none;padding:8px 0;border-bottom:1px solid transparent}
+.nav ul a:hover{border-bottom-color:var(--ink)}
+@media (max-width:900px){.nav ul li:not(.keep){display:none}}
+
+/* Accueil */
+.hero{position:relative;background:var(--dark);color:#fff;overflow:hidden;padding:0}
+.hero .bgv{position:absolute;inset:0;pointer-events:none}
+.hero .bgv iframe{position:absolute;top:50%;left:50%;width:max(100%,177.78vh);height:max(100%,56.25vw);transform:translate(-50%,-50%);border:0}
+.hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.42)}
+.hero-in{position:relative;z-index:1;min-height:min(78vh,720px);display:grid;place-content:center;justify-items:center;gap:18px;text-align:center;padding:96px 16px}
+.hero h1{font-size:clamp(46px,9vw,104px);font-weight:700;letter-spacing:.24em;margin-right:-.24em}
+.hero .role{font-weight:600;letter-spacing:.22em;text-transform:uppercase;font-size:clamp(13px,1.5vw,16px)}
+.hero .by{font-style:italic;opacity:.85;font-size:15px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:14px}
+
+/* Références */
+.refs{border-bottom:1px solid var(--line);padding:26px 0}
+.refs ul{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 44px;list-style:none;margin:0;padding:0}
+.refs li{font:600 12px/1.4 var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+
+/* Univers */
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px) clamp(16px,2.4vw,32px);margin-top:clamp(36px,5vw,60px)}
+@media (max-width:960px){.tiles{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.tiles{grid-template-columns:1fr}}
+.tile{all:unset;cursor:pointer;display:grid;gap:14px;text-align:center}
+.tile .ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--soft) var(--img) center/cover no-repeat}
+.tile .ph::after{content:"";position:absolute;inset:0;background:#000;opacity:0;transition:opacity .25s}
+.tile:hover .ph::after,.tile:focus-visible .ph::after{opacity:.25}
+.tile .ph span{position:absolute;inset:0;display:grid;place-items:center;z-index:1;color:#fff;font:600 12px/1 var(--f);letter-spacing:.24em;text-transform:uppercase;opacity:0;transition:opacity .25s}
+.tile:hover .ph span,.tile:focus-visible .ph span{opacity:1}
+.tile .cat{font:600 13px/1.3 var(--f);letter-spacing:.2em;text-transform:uppercase}
+.tile .tag{color:var(--muted);font-size:15px;line-height:1.5;margin-top:-6px}
+.tile:focus-visible{outline:2px solid var(--ink);outline-offset:6px}
+
+/* Résultat */
+.case{background:var(--soft)}
+.nums{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:44px;text-align:center}
+@media (max-width:760px){.nums{grid-template-columns:repeat(2,1fr)}}
+.nums strong{display:block;font:600 clamp(30px,4.2vw,50px)/1.1 var(--f);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.nums span{display:block;margin-top:8px;color:var(--muted);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.case .more{text-align:center;margin-top:40px}
+.link{font:600 12px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:6px}
+
+/* Qui suis-je */
+.about{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,6vw,88px);align-items:center}
+@media (max-width:900px){.about{grid-template-columns:1fr}}
+.portrait{aspect-ratio:4/5;background:var(--soft);overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.about h2{text-align:left}
+.about .rule{margin-left:0}
+.about p{color:#333;max-width:58ch;margin-top:20px}
+.about .btn{margin-top:30px}
+.plus{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,56px);margin-top:clamp(56px,8vw,96px);text-align:center}
+@media (max-width:800px){.plus{grid-template-columns:1fr}}
+.plus p{color:var(--muted);margin-top:10px;font-size:15px}
+
+/* Contact */
+.contact{background:var(--dark);color:#fff}
+.contact .sub{color:#B5B5B5}
+.contact .rule{background:#fff}
+.direct{display:flex;flex-wrap:wrap;justify-content:center;gap:12px 48px;margin-top:34px;text-align:center}
+.direct a{text-decoration:none}
+.direct small{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#9A9A9A;margin-bottom:4px}
+.direct strong{font:600 20px/1.3 var(--f);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+form{display:grid;gap:16px;max-width:720px;margin:44px auto 0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:560px){.row{grid-template-columns:1fr}}
+label{display:grid;gap:8px;font:500 11px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;color:#B5B5B5}
+input,select,textarea{font:400 16px/1.4 var(--f);letter-spacing:0;text-transform:none;color:#fff;background:transparent;border:1px solid #3A3A3A;border-radius:0;padding:14px;width:100%}
+select option{color:#111}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#fff}
+textarea{min-height:130px;resize:vertical}
+.contact .btn{justify-self:center;color:#fff}
+.contact .btn:hover{background:#fff;color:#111;border-color:#fff}
+.note{text-align:center;font-size:14px;color:#B5B5B5;min-height:1.5em}
+.note.err{color:#FFB4A0}.note.ok{color:#B9F0C8}
+
+footer{padding:56px 0;text-align:center}
+footer .logo{font-size:24px}
+footer p{color:var(--muted);margin-top:12px;font-size:14px}
+footer nav{margin-top:18px;display:flex;justify-content:center;gap:28px;flex-wrap:wrap}
+footer nav a{font:500 12px/1 var(--f);letter-spacing:.18em;text-transform:uppercase;text-decoration:none}
+
+/* Lecteur */
+dialog{border:0;padding:0;background:transparent;width:min(1040px,94vw);color:#fff}
+dialog::backdrop{background:rgba(0,0,0,.88)}
+.player{aspect-ratio:16/9;background:#000}
+.player iframe{width:100%;height:100%;border:0}
+.pbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px}
+.pbar a,.pbar button{all:unset;cursor:pointer;font:600 12px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid #fff;padding-bottom:5px}
+.pbar button:focus-visible,.pbar a:focus-visible{outline:2px solid #fff;outline-offset:4px}
+
+.hero.pro h1{font-size:clamp(32px,5.4vw,64px);letter-spacing:.06em;margin-right:0;text-transform:uppercase;max-width:17ch;line-height:1.12}
+.hero.pro .lead{max-width:60ch;font-size:clamp(16px,1.6vw,18px);opacity:.92}
+.plus.left{margin-top:clamp(36px,5vw,56px)}
+.plus .n{display:block;font:600 34px/1 var(--f);margin-bottom:14px;color:var(--muted)}
+.case .plus p{color:#555}
+
+/* Touches de couleur Moovii, avec parcimonie */
+.rule{background:var(--accent);height:2px}
+.contact .rule{background:var(--accent)}
+.hero .role{color:var(--accent)}
+.hero .cta .btn:first-child,.btn.solid,.contact form .btn{background:var(--accent);border-color:var(--accent);color:#0C1A3A}
+.hero .cta .btn:first-child:hover,.contact form .btn:hover{background:#fff;border-color:#fff;color:#0C1A3A}
+.btn.solid:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.plus .n{color:var(--accent)}
+.nums strong{color:var(--ink)}
+.nums div:nth-child(2) strong{color:var(--accent)}
+.about p{color:#2B3553}
+input,select,textarea{border-color:#33426B}
+#tiles{grid-template-columns:repeat(2,1fr);gap:clamp(28px,4vw,56px) clamp(20px,3vw,40px)}
+#tiles .ph{aspect-ratio:16/10}
+#tiles .cat{font-size:clamp(15px,1.6vw,19px);margin-top:6px}
+#tiles .tag{font-size:16px}
+@media (max-width:640px){#tiles{grid-template-columns:1fr}}
+.cal{max-width:860px;margin:44px auto 0}
+.cal-ph{border:1px solid #33426B;padding:clamp(32px,5vw,56px) 24px;text-align:center;display:grid;gap:14px;justify-items:center}
+.cal-ph p{color:#B5BCD0;max-width:44ch}
+.cal-ph .btn{background:var(--accent);border-color:var(--accent);color:#0C1A3A;margin-top:8px}
+.cal-ph .btn:hover{background:#fff;border-color:#fff;color:#0C1A3A}
+.cal-frame{width:100%;height:720px;border:0;background:#fff}
+.nums em{display:block;font:600 11px/1.3 var(--f);font-style:normal;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.nums div:nth-child(2) strong{color:var(--ink)}
+.state{background:var(--dark);color:#fff;text-align:center}
+.state .eyebrow{font:600 12px/1 var(--f);letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:26px}
+.state blockquote{margin:0 auto;max-width:24ch;font:600 clamp(26px,4vw,46px)/1.25 var(--f);text-wrap:balance}
+.state blockquote span{color:var(--accent);white-space:nowrap}
+.state .say{color:#C9CFDF;max-width:52ch;margin:28px auto 0;font-size:clamp(16px,1.6vw,18px)}
+.state .also{margin-top:48px;padding-top:28px;border-top:1px solid #2A3963;max-width:720px;margin-left:auto;margin-right:auto}
+.state .also small{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#8E99B8;margin-bottom:14px}
+.state .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 40px;font:600 13px/1.4 var(--f);letter-spacing:.2em;text-transform:uppercase}
+.logo img{height:46px;width:auto}
+footer .logo img{height:64px;margin:0 auto}
+.refs ul{align-items:center;gap:14px 56px}
+.refs li img{height:44px;width:auto;max-width:160px;object-fit:contain}
+.portrait{aspect-ratio:1/1}
+.why{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:20px;max-width:58ch}
+.why li{padding-left:18px;border-left:2px solid var(--accent);color:#2B3553;font-size:15.5px;line-height:1.6}
+.why b{display:block;font:600 13px/1.4 var(--f);letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:4px}
+.slide{background:#0C1A3A;display:grid;place-items:center;min-height:240px}
+.slide img{max-height:78vh;width:auto;max-width:100%}
+#slides .pbar{justify-content:center;gap:28px;flex-wrap:wrap}
+#scount{font:600 12px/1 var(--f);letter-spacing:.2em}
+.refs li img{max-width:none}
+.tile{cursor:default}
+.tile button.ph{all:unset;box-sizing:border-box;display:block;width:100%;cursor:pointer;position:relative;overflow:hidden;aspect-ratio:16/9;background:var(--img) center/cover no-repeat, linear-gradient(135deg,#16264F,#0C1A3A)}
+#tiles .ph{aspect-ratio:16/9}
+.tile button.ph:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.tile button.ph::after{content:"";position:absolute;inset:0;background:#000;opacity:.12;transition:opacity .25s}
+.tile button.ph:hover::after{opacity:.35}
+.tile button.ph span{position:absolute;inset:auto 0 18px 0;top:auto;display:block;text-align:center;opacity:1;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.pl{position:absolute;left:50%;top:50%;z-index:1;width:68px;height:68px;margin:-34px 0 0 -34px;border-radius:50%;background:var(--accent);display:grid;place-items:center;transition:transform .2s}
+.pl svg{width:18px;height:18px;margin-left:4px;fill:#0C1A3A}
+.tile button.ph:hover .pl{transform:scale(1.08)}
+.ph.playing{background:#000;aspect-ratio:16/9;position:relative}
+.ph.playing iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.off{position:absolute;inset:0;display:grid;place-content:center;gap:12px;text-align:center;color:#fff;padding:20px;font-size:15px;background:#0C1A3A}
+.off a{font:600 12px/1 var(--f);letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+.player.reel{aspect-ratio:9/16;max-height:80vh;margin:0 auto;position:relative;background:#0C1A3A}
+.hero::after{display:none}
+.tile .ph.playing::after{display:none}
+.tile .ph.playing{background:#000}
+.ph.playing iframe{z-index:2}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap nav">
+    <a class="logo" href="#accueil" aria-label="Moovii, retour en haut"><img src="assets/logo.png" alt="Moovii" width="600" height="346"></a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#realisations">Réalisations</a></li>
+        <li><a href="#methode">Méthode</a></li>
+        <li><a href="#qui-suis-je">Qui suis-je ?</a></li>
+        <li class="keep"><a href="#contact">Me contacter</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="accueil">
+  <section class="hero pro">
+        <div class="hero-in">
+      <p class="role">Vidéo pour les entreprises • Bordeaux</p>
+      <h1>Montrez ce que votre entreprise sait faire</h1>
+      <p class="lead">Vos clients, vos candidats et vos partenaires se font une idée de vous en quelques secondes.</p>
+      <p class="lead">Je vous aide à leur montrer ce qui fait votre valeur, avec des vidéos qui donnent envie de vous découvrir et de vous faire confiance.</p>
+      <div class="cta">
+        <a class="btn" href="#contact">Échanger 15 minutes</a>
+        <a class="btn" href="#realisations">Voir des exemples</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="refs">
+    <div class="wrap">
+      <ul aria-label="Ils m'ont fait confiance">
+        <li><img src="assets/ref-nrj.png" alt="NRJ" style="height:52px"></li>
+        <li><img src="assets/ref-paralympiques.png" alt="Jeux Paralympiques Paris 2024" style="height:44px"></li>
+        <li><img src="assets/ref-sciencespo.png" alt="Sciences Po" style="height:24px"></li>
+        <li><img src="assets/ref-bump.png" alt="Bump" style="height:30px"></li>
+      </ul>
+    </div>
+  </div>
+
+  <section id="besoins">
+    <div class="wrap">
+      <h2>Vous vous reconnaissez ?</h2>
+      <div class="rule"></div>
+      <div class="plus left">
+        <div><h3>Votre métier est difficile à expliquer</h3><p>Un prospect comprend en une minute de vidéo ce qu'une plaquette met dix pages à décrire.</p></div>
+        <div><h3>Vos réseaux tournent au ralenti</h3><p>Vous savez qu'il faudrait publier, mais personne n'a le temps ni les images pour le faire.</p></div>
+        <div><h3>Vous avez du mal à recruter</h3><p>Les candidats veulent voir l'ambiance, les locaux et les personnes avec qui ils vont travailler.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="realisations" style="padding-top:0">
+    <div class="wrap">
+      <h2>Ce que je réalise pour vous</h2>
+      <div class="rule"></div>
+      <p class="sub">Avant de sortir la caméra, on regarde ensemble de quoi vous avez vraiment besoin. Je ne fais pas de la vidéo juste pour faire de la vidéo.</p>
+      <div class="tiles" id="tiles"></div>
+    </div>
+  </section>
+
+  <section class="state" id="preuves">
+    <div class="wrap">
+      <p class="eyebrow">Pourquoi moi</p>
+      <blockquote>Chaque semaine, je crée des vidéos pour la matinale de NRJ et ses <span>+2 millions d'abonnés</span>.</blockquote>
+      <p class="say">Retenir l'attention en quelques secondes, c'est mon quotidien. Je mets ce savoir-faire au service de votre entreprise.</p>
+      <div class="also">
+        <small>Ils m'ont aussi fait confiance</small>
+        <div class="tags"><span>Jeux Paralympiques Paris 2024</span><span>Sciences Po</span><span>BUMP</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="methode">
+    <div class="wrap">
+      <h2>Comment ça se passe</h2>
+      <div class="rule"></div>
+      <p class="sub">Une vidéo doit servir à quelque chose. On commence donc par votre besoin.</p>
+      <div class="plus left">
+        <div><span class="n">1</span><h3>On analyse votre besoin ensemble</h3><p>15 minutes pour comprendre votre activité, vos clients et ce qui coince. Si la vidéo n'est pas la bonne réponse, je vous le dis.</p></div>
+        <div><span class="n">2</span><h3>L'idée avant la caméra</h3><p>Je vous propose la vidéo qui répond à ce besoin, avec son déroulé. Vous savez ce que vous allez obtenir avant le tournage.</p></div>
+        <div><span class="n">3</span><h3>Un tournage court</h3><p>Je filme uniquement les plans utiles, sans bloquer vos équipes pendant des heures. Vous recevez des vidéos prêtes à publier.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="qui-suis-je" style="padding-top:0">
+    <div class="wrap">
+      <div class="about">
+        <div class="portrait">
+          <img src="assets/fabien.jpg" alt="Fabien Duchesnay, fondateur de Moovii, vidéaste à Bordeaux" width="1000" height="1000">
+        </div>
+        <div>
+          <h2>Qui suis-je ?</h2>
+          <div class="rule"></div>
+          <p>Je suis Fabien Duchesnay, fondateur de Moovii, à Bordeaux. Voici ce que mon parcours change pour vous.</p>
+          <ul class="why">
+            <li><b>Diplômé d'une école de cinéma</b>Vos images sont cadrées, éclairées et montées avec soin. Votre entreprise est montrée à son meilleur niveau.</li>
+            <li><b>Community manager de la matinale de NRJ</b>Je sais ce qui fait qu'on s'arrête sur une vidéo. Les vôtres sont pensées pour être regardées jusqu'au bout.</li>
+            <li><b>Monteur sur les Jeux Paralympiques de Paris 2024</b>J'ai l'habitude des délais serrés et d'un haut niveau d'exigence. Vous êtes livré à la date prévue.</li>
+          </ul>
+          <a class="btn solid" href="#contact">Je prends rendez-vous !</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2>Parlons de votre entreprise</h2>
+      <div class="rule"></div>
+      <p class="sub">15 minutes au téléphone pour analyser ensemble votre besoin et voir si la vidéo peut y répondre. Sans engagement.</p>
+      <div class="direct">
+        <a href="tel:+33763408852"><small>Téléphone</small><strong>07 63 40 88 52</strong></a>
+        <a href="https://www.instagram.com/fabsduchesnay/" target="_blank" rel="noopener"><small>Instagram</small><strong>@fabsduchesnay</strong></a>
+      </div>
+      <div class="cal" id="cal">
+        <div class="cal-ph" id="cal-ph">
+          <h3>Réservez un échange de 15 minutes</h3>
+          <p>Choisissez le créneau qui vous arrange, directement dans mon agenda.</p>
+          <a class="btn" id="cal-btn" href="#contact" target="_blank" rel="noopener">Choisir un créneau</a>
+          <p class="note" id="note" role="status"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#accueil" aria-label="Moovii"><img src="assets/logo.png" alt="Moovii" width="600" height="346"></a>
+    <p>Votre vidéaste, où que vous soyez</p>
+    <nav aria-label="Liens de pied de page">
+      <a href="https://www.instagram.com/fabsduchesnay/" target="_blank" rel="noopener">Instagram</a>
+      <a href="tel:+33763408852">07 63 40 88 52</a>
+      <a href="#contact">Me contacter</a>
+    </nav>
+  </div>
+</footer>
+
+<dialog id="player" aria-label="Lecteur vidéo">
+  <div class="player" id="pbox"></div>
+  <div class="pbar"><a id="yt" href="#" target="_blank" rel="noopener">Ouvrir sur YouTube</a><button type="button" id="close">Fermer</button></div>
+</dialog>
+
+<dialog id="slides" aria-label="Portraits d'équipe">
+  <div class="slide"><img id="simg" src="" alt=""></div>
+  <div class="pbar"><button type="button" id="sprev">Précédent</button><span id="scount"></span><button type="button" id="snext">Suivant</button><button type="button" id="sclose">Fermer</button></div>
+</dialog>
+
+<script>
+let framed=true; try{ framed = window.self!==window.top; }catch(_){}
+const PX="https://px-web-images-v2.pixpa.com/";
+const YT=id=>"https://i.ytimg.com/vi/"+id+"/hqdefault.jpg";
+const SLIDES=[
+ "dDK3pVS9pAKHtk4z0BLg30Z6_gj5C-2Q-WeUmcY6KIc/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS83NjcyMzcvMTcwODg2NjU5Mi00MjQ1OTktcG9sZXNhYnJlNzQuanBn",
+ "T6enu2lfhTtofeRngNpK8hft3utrXkSLur9SaVOcFTE/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS83NjcyMzcvMTcwODg2NjU2Ny0yNTYyMjUtcG9sZXNhYnJlMTM0LmpwZw==",
+ "Uf61la-VeC0rImPgxkf1hd9U8jUUPGcFF2wwchKMRD4/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS83NjcyMzcvMTcwODg2NjU3MS01NjAwNjctcG9sZXNhYnJlMzYuanBn",
+ "YG376TmT4Of-UaQhpHbmqWFgRnh6snzXk8LzdmtoiNU/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS83NjcyMzcvMTcwODg2NjU3NS0zNzM1NDMtcG9sZXNhYnJlMTc0LmpwZw==",
+ "muE_l-GigizQhcSEcwMqS93u2s5AF9b_69TWqn0nJP4/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS83NjcyMzcvMTcwODYwNTM5OS01NTYwOTAtZHNjMDgwNTYuanBn",
+ "05SQMWMkKIJA7o3yOcEe9P-og_bG5MWf4MP-4vBFFgk/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS83NjcyMzcvMTcwODYwNTQxMy0xODQ0MTgtZHNjMDgxMjUuanBn",
+ "2ENUinMt6n-VJonAeFCreV4_EYZu2j_fDqw5l637j6c/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS83NjcyMzcvMTcwODYwNTQxNC0yNDY2MTQtZHNjMDgxMzIuanBn",
+ "71civhuxPLJxdF-4ve-YLDodPbKKrN7C77kcl8W1phw/rs:fit:1500:0/q:80/czM6Ly9waXhwYS10ZXN0L2NvbS9sYXJnZS83NjcyMzcvMTcwODYwNTQxNS02Njg3MDUtZHNjMDgxMzYuanBn"
+].map(x=>PX+x);
+const TILES=[
+ {cat:"Film de présentation",tag:"Votre activité, vos équipes et votre savoir-faire en vidéo",yt:"F1BLwDmIjIU",img:YT("F1BLwDmIjIU"),cta:"Voir le film"},
+ {cat:"Contenus réseaux sociaux",tag:"Des vidéos courtes, prêtes à publier sur LinkedIn et Instagram",reel:"DOymryziI_b",img:"assets/thumb-rs.jpg",cta:"Voir le reel"},
+ {cat:"Portraits d'équipe",tag:"Trombinoscope et portraits photo pour votre site et vos profils",slides:true,img:SLIDES[0],cta:"Voir les portraits"},
+ {cat:"Événements",tag:"Séminaires, inaugurations, salons : gardez-en une trace",yt:"TWFqy25ZRNk",start:42,img:YT("TWFqy25ZRNk"),cta:"Voir la vidéo"}
+];
+const el=document.getElementById("tiles");
+const PLAY='<i class="pl" aria-hidden="true"><svg viewBox="0 0 12 14"><path d="M0 0l12 7-12 7z"/></svg></i>';
+TILES.forEach(t=>{
+  const d=document.createElement("div"); d.className="tile";
+  const video=!!(t.yt||t.reel);
+  d.innerHTML=`<button type="button" class="ph" style="--img:url('${t.img}')" aria-label="${t.cat} : ${t.cta.toLowerCase()}">${video?PLAY:""}<span>${t.cta}</span></button><div class="cat">${t.cat}</div><div class="tag">${t.tag}</div>`;
+  const ph=d.querySelector(".ph");
+  ph.addEventListener("click",()=>{
+    if(t.slides) return openSlides();
+    if(t.reel) return openReel(t.reel);
+    playInline(ph,t);
+  });
+  el.appendChild(d);
+});
+// Lecture directement dans le carré
+function playInline(ph,t){
+  const box=document.createElement("div"); box.className="ph playing";
+  const watch="https://www.youtube.com/watch?v="+t.yt+(t.start?"&t="+t.start+"s":"");
+  if(framed){
+    box.innerHTML=`<p class="off">La vidéo se lira ici une fois le site en ligne.<a href="${watch}" target="_blank" rel="noopener">La voir sur YouTube</a></p>`;
+  }else{
+    box.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${t.yt}?autoplay=1&rel=0${t.start?"&start="+t.start:""}" title="${t.cat}" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+  }
+  ph.replaceWith(box);
+}
+function openReel(id){
+  const url="https://www.instagram.com/reel/"+id+"/";
+  box.className="player reel";
+  box.innerHTML=framed?`<p class="off">Le reel se lira ici une fois le site en ligne.</p>`:`<iframe src="${url}embed" title="Reel Instagram" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+  yt.href=url; yt.textContent="Ouvrir sur Instagram";
+  if(dlg.showModal) dlg.showModal();
+}
+// Diaporama des portraits
+const sd=document.getElementById("slides"),simg=document.getElementById("simg"),scount=document.getElementById("scount");
+let si=0;
+function showSlide(i){ si=(i+SLIDES.length)%SLIDES.length; simg.src=SLIDES[si]; simg.alt="Portrait d'équipe "+(si+1)+" sur "+SLIDES.length; scount.textContent=(si+1)+" / "+SLIDES.length; }
+function openSlides(){ showSlide(0); if(sd.showModal) sd.showModal(); }
+document.getElementById("sprev").addEventListener("click",()=>showSlide(si-1));
+document.getElementById("snext").addEventListener("click",()=>showSlide(si+1));
+document.getElementById("sclose").addEventListener("click",()=>sd.close());
+sd.addEventListener("click",e=>{ if(e.target===sd) sd.close(); });
+sd.addEventListener("keydown",e=>{ if(e.key==="ArrowLeft") showSlide(si-1); if(e.key==="ArrowRight") showSlide(si+1); });
+const dlg=document.getElementById("player"),box=document.getElementById("pbox"),yt=document.getElementById("yt");
+function openPlayer(id,start){
+  box.innerHTML=`<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0${start?"&start="+start:""}" title="Vidéo Moovii" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+  yt.href="https://www.youtube.com/watch?v="+id+(start?"&t="+start+"s":"");
+  if(dlg.showModal) dlg.showModal(); else location.href=yt.href;
+}
+document.getElementById("close").addEventListener("click",()=>dlg.close());
+dlg.addEventListener("click",e=>{ if(e.target===dlg) dlg.close(); });
+dlg.addEventListener("close",()=>{ box.innerHTML=""; box.className="player"; yt.textContent="Ouvrir sur YouTube"; });
+// Calendly : coller ici le lien de l'événement (ex. https://calendly.com/votre-nom/15min).
+const CALENDLY_URL="https://calendly.com/fabsduchesnay/echange-de-15-minutes";
+const calBtn=document.getElementById("cal-btn"),note=document.getElementById("note");
+if(CALENDLY_URL){
+  calBtn.href=CALENDLY_URL;
+  if(!framed){
+    document.getElementById("cal").innerHTML='<iframe class="cal-frame" src="'+CALENDLY_URL+'?hide_gdpr_banner=1&primary_color=ff5a2e" title="Prendre rendez-vous avec Moovii" loading="lazy"></iframe>';
+  }
+}else{
+  calBtn.removeAttribute("target");
+  calBtn.addEventListener("click",e=>{ e.preventDefault(); note.textContent="L'agenda Calendly s'affichera ici dès que le lien sera ajouté. En attendant : 07 63 40 88 52."; });
+}
+</script>
+</body>
+</html>
